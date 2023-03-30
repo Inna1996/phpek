@@ -53,10 +53,10 @@ class RegisterView extends BaseView {
            {
             $this->component = $this->alert('warning', 'this email is already registered');
            }
-           else {
+           else
+           {
             $result = false;
            }
-
         }
         return $result;
     }
@@ -73,7 +73,6 @@ class RegisterView extends BaseView {
         if($registeringProcess)
         {
             $this->component = $this->alert('success','you are successfully registered');
-            //header("Location: profil.php");
         }
         else
         {

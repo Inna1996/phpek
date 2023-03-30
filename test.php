@@ -1,6 +1,5 @@
 <?php
 
-use App\Table\UserTable;
 use Table\Database\QueryProvider;
 
 include('./template/navbar.php'); 
@@ -20,14 +19,14 @@ $qp = new QueryProvider();
 //$arrayBindDelete = [':id'=>3];
 //$qp->deleteQuery($deleteQuery,$arrayBindDelete);
 
-$myUser = new UserTable();
-$result = $myUser->selectByEmail('myemail@gmail.com');
+$selectQuery = 'SELECT * FROM users WHERE 1';
+$answerSelectQurey = $qp->selectQuery($selectQuery);
 
 ?>
 
 <div class="container pt-3">
     <h3>DAA AE Ina Zimmermann</h3>
-    <?=var_dump($result)?>
+    <?=var_dump($answerSelectQurey)?>
 </div>
 
 
