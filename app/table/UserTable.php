@@ -38,6 +38,19 @@ class UserTable extends QueryProvider
       }
       return null;
    }
+
+   public function setUserByEmail(string $email):void
+   {
+      $sqlQuery = 'SELECT * FROM users WHERE email = :email';
+      $arrayBind = [':email'=>$email];
+      $result = $this->selectQuery($sqlQuery,$arrayBind);
+      if(isset($result[0]))
+      {
+         $this->convertSelectResultToObject($result[0]);
+   
+      }
+     
+   }
    
    protected function insert(string $email, string $password , bool $isAdmin = false):int|null
    {
