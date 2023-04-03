@@ -1,13 +1,23 @@
-<?php 
+<?php
+session_start();
 require_once('./app/controller/UserController.php');
 use App\Controller\UserController;
 $email="";
 if(isset($_POST['email'])) {
-  $controller = new UserController();
+  $userController = new UserController();
   $email = $_POST['email'];
   $password = $_POST['password'];
   $_POST=[];
-  header('location:profile.php');
+  $result = $userController->login($email,$password);
+  if($result) {
+    $_SESSION['user']=$email;
+    header('location:profile.php');
+    die;
+  }
+  else {
+    echo "Userpassword is wrong";
+  }
+  
 }
 include('./template/navbar.php'); 
 ?>

@@ -57,7 +57,7 @@ class UserTable extends QueryProvider
       $sqlQuery = 'INSERT INTO users (email ,password, isAdmin) VALUES (:email,:password,:isAdmin)';
       $arrayBind = [':email'=> $email,':password'=>$password,':isAdmin'=>$isAdmin];
       $result = $this->insertQuery($sqlQuery,$arrayBind);
-      var_dump($this->getError());
+      //var_dump($this->getError());
       return $result;
    }
 

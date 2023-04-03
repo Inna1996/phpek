@@ -58,7 +58,7 @@ public function getUsers(): array
 }
 
 
-private function hashPassword($password): string
+public function hashPassword($password): string
 {
     $options = [
       'memory_cost' => 2048,
@@ -69,7 +69,7 @@ private function hashPassword($password): string
     return $hash;
 }
 
-private function verifyPassword(string $password, string $hash): bool
+public function verifyPassword(string $password, string $hash): bool
   {
       if (password_verify($password, $hash)) {
           return true;

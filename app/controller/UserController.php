@@ -40,4 +40,13 @@ class UserController extends User
         return false;
     }
 
+    public function login(string $email, string $password): bool
+    {
+        $user=$this->selectByEmail($email);
+        if($user){
+            return $this->verifyPassword($password, $user->password);
+        }     
+        return false;
+    }
+
 }
