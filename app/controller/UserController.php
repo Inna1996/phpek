@@ -33,17 +33,11 @@ class UserController extends User
 
     public static function checkIfUserExisted(string $email): bool
     {
-        
+        $user = new User();
+        if ($user->selectByEmail($email)) {
+            return true;
+        }
         return false;
     }
 
-    public function login(string $email, string $password):bool {
-        $result = false;
-        $this->getUserByEmail($email);
-        /*if($this->id>0) {
-            $result = $this->verifyPassword($password, $this->password);
-        }*/
-      
-        return $result;
-    }
 }

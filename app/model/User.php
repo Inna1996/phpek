@@ -69,7 +69,7 @@ private function hashPassword($password): string
     return $hash;
 }
 
-  private function verifyPassword(string $password, string $hash): bool
+private function verifyPassword(string $password, string $hash): bool
   {
       if (password_verify($password, $hash)) {
           return true;
