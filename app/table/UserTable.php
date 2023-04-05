@@ -68,6 +68,14 @@ class UserTable extends QueryProvider
       return $this->deleteQuery($deleteQuery,$arrayBindDelete);
    }
 
+   public function deleteByEmail(string $email): int|null
+   {
+      $deleteQuery = 'DELETE FROM users WHERE email = :email';
+      $arrayBindDelete = [':email'=>$email];
+      return $this->deleteQuery($deleteQuery,$arrayBindDelete);
+   }
+
+
    public function updatePasswordByEmail(string $email,string $password):int|null
    {      
     $updateQuery = 'UPDATE users SET password = :password WHERE email = :email';    
